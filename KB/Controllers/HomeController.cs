@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KB.Db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,13 @@ namespace KB.Controllers
 {
     public class HomeController : Controller
     {
+        KBDB _db = new KBDB();
+        
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            ViewBag.Message = "Artiklar";
+            var model = _db.Articles.ToList();
+            return View(model);
         }
 
         public ActionResult About()
@@ -27,6 +30,14 @@ namespace KB.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (_db != null)
+            {
+                _db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

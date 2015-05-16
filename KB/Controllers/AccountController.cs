@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using KB.Filters;
 using KB.Models;
+using KB.Models;
 
 namespace KB.Controllers
 {

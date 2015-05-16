@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using KB.Models;
+using KB.Models;
 
 namespace KB.Filters
 {
