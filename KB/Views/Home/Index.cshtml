@@ -4,11 +4,9 @@
 }
 @foreach (var item in Model)
 {
-    <div>
-        <h4>@item.Title</h4>
-        <p>@item.Author</p>
-        <p>@item.Content</p>
-        <hr />
+    <div class="article-list-item">
+        <h3>@item.Title</h3>
+        By: @Html.DisplayFor(modelItem => item.Author.Name) <br />
         <small>@item.CreationDate</small>
     </div>
 }

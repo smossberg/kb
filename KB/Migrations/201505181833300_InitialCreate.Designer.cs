@@ -11,7 +11,7 @@ namespace KB.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201505161257548_InitialCreate"; }
+            get { return "201505181833300_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

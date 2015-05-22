@@ -15,21 +15,21 @@ namespace KB.Migrations
                         Title = c.String(),
                         CreationDate = c.DateTime(nullable: false),
                         Content = c.String(),
-                        Author_id = c.Int(),
+                        Author_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Authors", t => t.Author_id)
-                .Index(t => t.Author_id);
+                .ForeignKey("dbo.Authors", t => t.Author_Id)
+                .Index(t => t.Author_Id);
             
             CreateTable(
                 "dbo.Authors",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
-                        email = c.String(),
-                        name = c.String(),
+                        Id = c.Int(nullable: false, identity: true),
+                        Email = c.String(),
+                        Name = c.String(),
                     })
-                .PrimaryKey(t => t.id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Categories",
@@ -44,8 +44,8 @@ namespace KB.Migrations
         
         public override void Down()
         {
-            DropIndex("dbo.Articles", new[] { "Author_id" });
-            DropForeignKey("dbo.Articles", "Author_id", "dbo.Authors");
+            DropIndex("dbo.Articles", new[] { "Author_Id" });
+            DropForeignKey("dbo.Articles", "Author_Id", "dbo.Authors");
             DropTable("dbo.Categories");
             DropTable("dbo.Authors");
             DropTable("dbo.Articles");

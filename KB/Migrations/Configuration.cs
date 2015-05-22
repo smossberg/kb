@@ -1,5 +1,6 @@
 namespace KB.Migrations
 {
+    using KB.Enteties;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,18 +15,17 @@ namespace KB.Migrations
 
         protected override void Seed(KB.Db.KBDB context)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Articles.AddOrUpdate(a => a.Title,
+                new Article
+                {
+                    Title = "Test Artikeln",
+                    Content = "Innehåll",
+                    CreationDate = DateTime.Now,
+                    Author = new Author { Name = "Sebastian", Email = "sebastian@regiondata.se" },
+                    Category = new Category { Name = "Solutions" }
+                });
+                
         }
     }
 }

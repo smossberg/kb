@@ -1,0 +1,36 @@
+﻿@model KB.Enteties.Article
+
+@{
+    ViewBag.Title = "Article";
+}
+
+<h2>Article</h2>
+
+<fieldset>
+    <legend>@Html.DisplayNameFor(model => model.Title)</legend>
+
+    <div class="display-label">
+        
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreationDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreationDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Content)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -12,6 +12,7 @@ namespace KB.Enteties
         public DateTime CreationDate { get; set; }
         public string Content { get; set; }
         public Author Author { get; set; }
+        public Category Category { get; set; }
 
     }
 }

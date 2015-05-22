@@ -115,7 +115,7 @@ h5, h6 {
     }
 
 header .content-wrapper {
-    padding-top: 20px; 
+    padding-top: 40px; 
 }
 
 footer {
@@ -753,4 +753,21 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+
+    
 }
+/* Index
+        ---------------------------------*/
+    .article-list-item{
+        display:block;
+        width:100%;
+        padding-top:5px; padding-bottom:5px;
+        border-bottom:1px solid #333;
+    }
+    .article-list-item:hover{
+        background:white;
+    }
+    .article-list-item h3{
+        text-align:center;
+        margin:auto;
+    }

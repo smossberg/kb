@@ -78,3 +78,5 @@ C:\Users\moss\Projects\KB\KB\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\moss\Projects\KB\KB\obj\Debug\KB.csprojResolveAssemblyReference.cache
 C:\Users\moss\Projects\KB\KB\obj\Debug\KB.dll
 C:\Users\moss\Projects\KB\KB\obj\Debug\KB.pdb
+C:\Users\moss\Projects\KB\KB\obj\Debug\KB.Migrations.InitialCreate.resources
+C:\Users\moss\Projects\KB\KB\obj\Debug\KB.csproj.GenerateResource.Cache
