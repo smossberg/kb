@@ -1,4 +1,5 @@
 ﻿using KB.Db;
+using KB.Enteties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,35 +14,10 @@ namespace KB.Controllers
         
         public ActionResult Index()
         {
-            return Articles(null);
+            //return Articles(null);
+            return RedirectToAction("List", "Article");
         }
-        public ActionResult Article(int id)
-        {
-            var model = _db.Articles.Include("Author").Include("Category").FirstOrDefault(a => a.Id == id);
-            return View(model);
-        }
-        public ActionResult Category(string category)
-        {
-            var model = _db.Articles.Where(a => a.Category.Name == category);
-            return View();
-        }
-        public ActionResult Articles(string category)
-        {
-            if (category != null)
-            {
-                ViewBag.IsCategory = true;
-                ViewBag.Category = category;
-                var model = _db.Articles.Include("Author").Include("Category").Where(a => a.Category.Name == category);
-                 return View(model);
-            }
-            else
-            {
-                ViewBag.IsCategory = false;
-                
-                var model = _db.Articles.Include("Author").Include("Category").ToList();
-                return View(model);
-            }
-        }
+        
 
         public ActionResult About()
         {

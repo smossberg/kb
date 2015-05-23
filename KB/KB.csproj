@@ -182,6 +182,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KBController.cs" />
     <Compile Include="Db\KBDB.cs" />
@@ -312,7 +313,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Article.cshtml" />
-    <Content Include="Views\Home\Articles.cshtml" />
+    <Content Include="Views\Home\New.cshtml" />
+    <Content Include="Views\Article\Create.cshtml" />
+    <Content Include="Views\Article\Show.cshtml" />
+    <Content Include="Views\Article\List.cshtml" />
+    <Content Include="Views\Article\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

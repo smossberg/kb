@@ -1,0 +1,29 @@
+﻿@model KB.Enteties.Article
+
+@{
+    ViewBag.Title = "Article";
+}
+
+<fieldset class="article-fieldset">
+    <legend>Article</legend>
+
+    
+    <div class="article-view-title">
+        <h2>@Html.DisplayFor(model => model.Title)</h2>
+    </div>
+
+    <div class="article-content">
+        
+        @Html.Raw(Model.Content)
+        <small>@Html.DisplayFor(model => model.CreationDate)</small><br />
+        <small>By: @Html.DisplayFor(model => model.Author.Name)</small><br />
+        <small>Category: @Html.DisplayFor(model => model.Category.Name)</small>
+    </div>
+    <div class="display-field">
+        
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
