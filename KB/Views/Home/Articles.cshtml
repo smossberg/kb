@@ -1,0 +1,21 @@
+﻿@model IEnumerable<KB.Enteties.Article>
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>
+    @if (ViewBag.IsCategory == true){<text>@ViewBag.Category</text>}
+</h2>
+@foreach (var item in Model)
+{
+    <div class="article-list-item">
+            
+            <ul>
+                <li class="article-item-title"><a href="/KB/Article/@item.Id">@item.Title</a></li>
+                <li class="article-item-category">@Html.DisplayFor(modelItem => item.Category.Name)</li>
+                <li>By: @Html.DisplayFor(modelItem => item.Author.Name)</li>
+            </ul>
+        
+            
+    </div>
+
+}

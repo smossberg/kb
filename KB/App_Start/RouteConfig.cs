@@ -14,10 +14,16 @@ namespace KB
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Category",
+                url: "KB/Articles/{category}",
+                defaults: new { controller = "Home", action = "Articles", category = UrlParameter.Optional }
+                ); 
+
+            routes.MapRoute(
                 name: "KB",
                 url: "KB/{action}/{id}",
-                defaults: new { controller = "KB", action = "Search", id = UrlParameter.Optional }
-                );
+                defaults: new { controller = "Home", action = "Articles", id = UrlParameter.Optional }
+                ); 
 
             routes.MapRoute(
                 name: "Default",

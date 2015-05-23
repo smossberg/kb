@@ -5,8 +5,12 @@
 @foreach (var item in Model)
 {
     <div class="article-list-item">
-        <h3>@item.Title</h3>
-        By: @Html.DisplayFor(modelItem => item.Author.Name) <br />
-        <small>@item.CreationDate</small>
+            
+        <ul>
+            <li class="article-item-title"><a href="/KB/Article/@item.Id">@item.Title</a></li>
+            <li class="article-item-category"><a href="/KB/Articles/@Html.DisplayFor(modelItem => item.Category.Name)"> @Html.DisplayFor(modelItem => item.Category.Name)</a></li>
+            <li>By: @Html.DisplayFor(modelItem => item.Author.Name)</li>
+        </ul>
     </div>
+
 }

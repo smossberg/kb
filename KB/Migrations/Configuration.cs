@@ -20,10 +20,18 @@ namespace KB.Migrations
                 new Article
                 {
                     Title = "Test Artikeln",
-                    Content = "Innehåll",
+                    Content = "<b>Innehåll</b></br><p>testar lite <font color='red'>html</font></p>",
                     CreationDate = DateTime.Now,
                     Author = new Author { Name = "Sebastian", Email = "sebastian@regiondata.se" },
                     Category = new Category { Name = "Solutions" }
+                },
+                new Article
+                {
+                    Title = "List processes in Linux",
+                    Content = "<h2>Lista alla processer som körs</h2><p>För att lista alla processer som körs på en linux burk, kör:</p><p><i>ps aux </i></p>",
+                    CreationDate = DateTime.Now,
+                    Author = new Author { Name = "Pierre", Email = "pierre@regiondata.se" },
+                    Category = new Category { Name = "LINUX" }
                 });
                 
         }
