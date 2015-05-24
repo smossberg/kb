@@ -1,0 +1,56 @@
+﻿@model KB.Models.CreateArticleModel
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Article</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Article.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Article.Title)
+            @Html.ValidationMessageFor(model => model.Article.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Article.CreationDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Article.CreationDate)
+            @Html.ValidationMessageFor(model => model.Article.CreationDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Article.Content)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Article.Content)
+            @Html.ValidationMessageFor(model => model.Article.Content)
+        </div>
+        <div class="editor-field">
+            <select>
+                @foreach (var category in model.Categories)
+                {
+                    <option>@item.Name</option>
+                }
+                
+            </select>
+            
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,7 +1,9 @@
 ﻿using KB.Db;
 using KB.Enteties;
+using KB.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,28 +33,36 @@ namespace KB.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = _db.Articles.Find(id);
+            return View(model);
         }
 
         //
         // POST: /Article/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Article article)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    _db.Entry(article).State = EntityState.Modified;
+            //    _db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            //return View(article);
             try
             {
-                Article article = (from a in _db.Articles
-                            where a.Id == id
-                            select a).First();
-                article.Title = collection.GetValue("Title").ToString();
-                article.Content = collection.GetValue("Content").ToString();
+                Article a = _db.Articles.Find(id);
+                a.Title = article.Title;
+                a.Content = article.Content;
+                a.Category = article.Category;
+
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(article);
             }
             
         }
@@ -69,11 +79,12 @@ namespace KB.Controllers
         // POST: /Article/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Article article)
         {
             try
             {
-                // TODO: Add delete logic here
+                _db.Articles.Remove(article);
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -112,34 +123,27 @@ namespace KB.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View("");
         }
 
         //
         // POST: /Article/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CreateArticleModel article)
         {
-            try
+            if(ModelState.IsValid)
             {
-                KB.Enteties.Article article = new Article
-                {
-                    Title = collection.GetValue("title").ToString(),
-                    Content = collection.GetValue("content").ToString(),
-                    CreationDate = DateTime.Parse(collection.GetValue("creationdate").ToString()),
-                    Author = _db.Authors.Find(1),
-                    Category = _db.Categories.Single(c => c.Name == "Solutions")
-                };
-
-                _db.Articles.Add(article);
-
+                _db.Articles.Add(article.Article);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(article);
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

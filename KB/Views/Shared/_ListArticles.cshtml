@@ -1,15 +1,10 @@
 ﻿@model IEnumerable<KB.Enteties.Article>
 @{
     ViewBag.Title = "Home Page";
-    
 }
-@Html.Partial("_CreateArticle", new KB.Models.CreateArticleModel())
 <h2>
     @if (ViewBag.IsCategory == true){<text>@ViewBag.Category</text>}
 </h2>
-<div>
-    
-</div>
 @foreach (var item in Model)
 {
     <div class="article-list-item">    

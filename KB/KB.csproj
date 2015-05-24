@@ -183,6 +183,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KBController.cs" />
     <Compile Include="Db\KBDB.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Enteties\Article.cs" />
     <Compile Include="Enteties\Author.cs" />
     <Compile Include="Enteties\Category.cs" />
+    <Compile Include="Models\CreateArticleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -314,10 +316,17 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Article.cshtml" />
     <Content Include="Views\Home\New.cshtml" />
-    <Content Include="Views\Article\Create.cshtml" />
     <Content Include="Views\Article\Show.cshtml" />
     <Content Include="Views\Article\List.cshtml" />
     <Content Include="Views\Article\Edit.cshtml" />
+    <Content Include="Views\Article\CreateOLD.cshtml" />
+    <Content Include="Views\Shared\_CreateArticle.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\Shared\_ListArticles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
