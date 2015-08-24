@@ -17,5 +17,6 @@ namespace KB.Enteties
        
         public Category Category { get; set; }
 
+        public ICollection<Tag> Tags { get; set; }
     }
 }

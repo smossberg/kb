@@ -17,7 +17,13 @@
         @Html.Raw(Model.Content)
         <small>@Html.DisplayFor(model => model.CreationDate)</small><br />
         <small>By: @Html.DisplayFor(model => model.Author.Name)</small><br />
-        <small>Category: @Html.DisplayFor(model => model.Category.Name)</small>
+        <small>Category: @Html.DisplayFor(model => model.Category.Name)</small><br />
+        <small>Tags: @if(Model.Tags != null){
+                          foreach(var tag in Model.Tags.ToList())
+                          {
+                              Html.Display(tag.Name);
+                          }
+        }</small>
     </div>
     <div class="display-field">
         

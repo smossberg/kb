@@ -2,6 +2,7 @@ namespace KB.Migrations
 {
     using KB.Enteties;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -15,7 +16,7 @@ namespace KB.Migrations
 
         protected override void Seed(KB.Db.KBDB context)
         {
-
+            
             context.Articles.AddOrUpdate(a => a.Title,
                 new Article
                 {
@@ -48,7 +49,8 @@ namespace KB.Migrations
                     Content = "<h2>Lista alla processer som körs</h2><p>För att lista alla processer som körs på en linux burk, kör:</p><p><i>ps aux </i></p>",
                     CreationDate = DateTime.Now,
                     Author = new Author { Name = "Pierre", Email = "pierre@regiondata.se" },
-                    Category = new Category { Name = "LINUX" }
+                    Category = new Category { Name = "LINUX" },
+                    Tags = new List<Tag>{ new Tag("processes"), new Tag("ps aux")}
                 });
 
                 
