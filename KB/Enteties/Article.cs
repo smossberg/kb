@@ -10,16 +10,11 @@ namespace KB.Enteties
     {
         public int Id { get; set; }
 
-        [Required]
-        [Range(3,100)]
         public string Title { get; set; }
-        [Required]
         public DateTime CreationDate { get; set; }
-        [Required]
-
         public string Content { get; set; }
         public Author Author { get; set; }
-        [Required]
+       
         public Category Category { get; set; }
 
     }
